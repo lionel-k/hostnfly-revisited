@@ -14,4 +14,4 @@ The script to fill the database from the `backend_test.rb` is in `db/seeds.rb`
 
 ### Database schema
 
-![alt text](https://raw.githubusercontent.com/lionel-k/hostnfly-revisited/api/master/public/database-schema.png)
+![alt text](https://raw.githubusercontent.com/lionel-k/hostnfly-revisited/master/api/public/database-schema.png)
