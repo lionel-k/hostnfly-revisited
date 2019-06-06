@@ -22,7 +22,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    reservation.destroy
+    reservation.cancel
     head :no_content
   end
 
