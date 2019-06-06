@@ -67,7 +67,7 @@ ClosingParenthesisIndentation:
 MethodLength:
   Max: 20
 Metrics/LineLength:
-  Max: 110
+  Max: 90
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'namespace']
   Exclude:

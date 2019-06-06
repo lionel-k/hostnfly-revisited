@@ -2,6 +2,6 @@
 
 class MissionsController < ApplicationController
   def index
-    render json: Mission.order(:listing_id), status: :ok
+    render json: { missions: Mission.all }, status: :ok
   end
 end
