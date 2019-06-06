@@ -1,24 +1,12 @@
-# README
+# HostnFly Revisited API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# To run the API in local environment
 
-Things you may want to cover:
+- `git clone https://github.com/lionel-k/hostnfly-revisited.git`
+- `cd hostnfly-revisited/api`
+- `bundle`
+- `rails db:create`
+- `rails db:migrate`
+- `rails db:seed` (optional) - To populate the database with fake data.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The script to fill the database from the `backend_test.rb` is in `db/seeds.rb`
