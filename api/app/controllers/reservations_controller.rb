@@ -6,9 +6,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    reservation = Reservation.new(reservation_params)
-    reservation.listing = listing
-    reservation.save!
+    reservation = listing.reservations.create!(reservation_params)
     render_json(reservation)
   end
 

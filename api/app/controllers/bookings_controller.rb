@@ -6,9 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    booking = Booking.new(booking_params)
-    booking.listing = listing
-    booking.save!
+    booking = listing.bookings.create!(booking_params)
     render_json(booking)
   end
 
