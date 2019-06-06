@@ -1,0 +1,75 @@
+require: rubocop-rails
+
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.4.3
+  Exclude:
+      - 'db/**/*'
+      - 'config/**/*'
+      - 'script/**/*'
+      - 'support/**/*'
+      - 'vendor/**/*'
+      - 'bin/**/*'
+      - 'tmp/*'
+      - 'Guardfile'
+      - 'node_modules/**/*' #webpacker & rails 5.1
+
+Rails:
+  Enabled: true
+
+# forces single assignment out of if/case statements
+ConditionalAssignment:
+  Enabled: true
+# forces correct use of single vs double quotes
+StringLiterals:
+  Enabled: true
+# forces documentation of classes and modules
+Documentation:
+  Enabled: false
+# forces specific regex syntax
+RegexpLiteral:
+  Enabled: true
+# forces if to be potentialy replaced with guard clause return if
+GuardClause:
+  Enabled: false
+# forces %w notation for array of words
+WordArray:
+  Enabled: false
+# forces %w[] instead of %w()
+PercentLiteralDelimiters:
+  Enabled: false
+# forces maximum on size of methods
+AbcSize:
+  Enabled: false
+# forces max complexity of methods
+CyclomaticComplexity:
+  Enabled: true
+# forces correct usage of fail vs raise
+SignalException:
+  Enabled: true
+# forces frozen literal magic comment
+FrozenStringLiteralComment:
+  Enabled: true
+# forces %i[] for an array of symbols
+SymbolArray:
+  Enabled: false
+# forces weird looking syntax on hashes as last argument of method
+IndentFirstHashElement:
+  Enabled: false
+# forces weird looking syntax on closing of parenthesis of multi-line methods
+ClosingParenthesisIndentation:
+  Enabled: false
+# increases the line length to 160 chars
+# LineLength:
+#   Max: 160 # default 80
+# increase the method length to 10 lines
+MethodLength:
+  Max: 20
+Metrics/LineLength:
+  Max: 110
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'namespace']
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'lib/tasks/auto_annotate_models.rake' #in case you use the gem anotate
