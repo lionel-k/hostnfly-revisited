@@ -6,7 +6,6 @@ class CreateFirstCheckinMissionService
     @listing = @booking.listing
     @start_date = @booking.start_date
     @mission_type = :first_checkin
-    @price = Mission::PRICES[@mission_type] * @listing.num_rooms
   end
 
   def call

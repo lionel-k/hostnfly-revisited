@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :reservations
   end
   resources :missions, only: [:index]
+  root to: "listings#index"
 end

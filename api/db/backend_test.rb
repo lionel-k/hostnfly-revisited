@@ -1,4 +1,4 @@
-input = {
+INPUT = {
   "listings": [
     { "id": 1, "num_rooms": 2 },
     { "id": 2, "num_rooms": 1 },

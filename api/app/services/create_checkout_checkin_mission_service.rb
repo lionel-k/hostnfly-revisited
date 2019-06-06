@@ -6,7 +6,6 @@ class CreateCheckoutCheckinMissionService
     @listing = @reservation.listing
     @mission_type = :checkout_checkin
     @end_date = @reservation.end_date
-    @price = Mission::PRICES[:checkout_checkin] * @listing.num_rooms
   end
 
   def call

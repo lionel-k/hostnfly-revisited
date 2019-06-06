@@ -9,11 +9,19 @@ class Mission < ApplicationRecord
 
   belongs_to :listing
 
+  before_validation :compute_price
+
   validates :date, :mission_type, :price, presence: true
   validates :mission_type, inclusion: { in: PRICES.keys.map(&:to_s),
                                         message: '%{value} is not a valid type' }
 
   def self.price_of(type)
-    PRICES[type]
+    (PRICES.keys.include? type) ? PRICES[type] : 0
+  end
+
+  def compute_price
+    unless mission_type.nil?
+      self.price = Mission.price_of(mission_type.to_sym) * listing.num_rooms
+    end
   end
 end

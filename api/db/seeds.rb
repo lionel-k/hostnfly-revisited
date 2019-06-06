@@ -5,29 +5,13 @@ Booking.destroy_all
 Reservation.destroy_all
 Mission.destroy_all
 
-input = {
-  "listings": [
-    { "id": 1, "num_rooms": 2 },
-    { "id": 2, "num_rooms": 1 },
-    { "id": 3, "num_rooms": 3 }
-  ],
-  "bookings": [
-    { "id": 1, "listing_id": 1, "start_date": "2016-10-10", "end_date": "2016-10-15" },
-    { "id": 2, "listing_id": 1, "start_date": "2016-10-16", "end_date": "2016-10-20" },
-    { "id": 3, "listing_id": 2, "start_date": "2016-10-15", "end_date": "2016-10-20" }
-  ],
-  "reservations": [
-    { "id": 1, "listing_id": 1, "start_date": "2016-10-11", "end_date": "2016-10-13" },
-    { "id": 1, "listing_id": 1, "start_date": "2016-10-13", "end_date": "2016-10-15" },
-    { "id": 1, "listing_id": 1, "start_date": "2016-10-16", "end_date": "2016-10-20" },
-    { "id": 3, "listing_id": 2, "start_date": "2016-10-15", "end_date": "2016-10-18" }
-  ]
-}
+filename = Dir[File.join(Rails.root, 'db', 'backend_test.rb')][0]
+puts "Seeding from #{filename}"
+load(filename) if File.exist?(filename)
 
-
-listings = input[:listings]
-bookings = input[:bookings]
-reservations = input[:reservations]
+listings = INPUT[:listings]
+bookings = INPUT[:bookings]
+reservations = INPUT[:reservations]
 
 listings.each do |listing|
   Listing.create!(num_rooms: listing[:num_rooms])
