@@ -16,7 +16,11 @@ class Mission < ApplicationRecord
                                         message: '%{value} is not a valid type' }
 
   def self.price_of(type)
-    (PRICES.keys.include? type) ? PRICES[type] : 0
+    if PRICES.keys.include? type
+      PRICES[type]
+    else
+      0
+    end
   end
 
   def compute_price

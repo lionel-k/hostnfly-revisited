@@ -7,11 +7,6 @@ RSpec.describe Mission, type: :model do
     Listing.create!(num_rooms: 2)
   end
 
-  let(:booking) do
-    Booking.create!(listing: listing,
-                    start_date: '2016-10-10', end_date: '2016-10-15')
-  end
-
   let(:valid_attributes) do
     { listing: listing,
       date: '2016-10-11',
@@ -19,28 +14,38 @@ RSpec.describe Mission, type: :model do
       price: 5 }
   end
 
-  it 'has a date/mission_type/price' do
+  it 'has a date' do
     mission = Mission.new(valid_attributes)
 
     expect(mission.date).to eq(Date.parse('2016-10-11'))
-    expect(mission.price).to eq(5)
+  end
+
+  it 'has a mission_type' do
+    mission = Mission.new(valid_attributes)
+
     expect(mission.mission_type).to eq('last_checkout')
   end
 
-  it 'date/mission_type/price cannot be blank' do
-    attributes1 = valid_attributes
-    attributes2 = valid_attributes
-    attributes3 = valid_attributes
-    attributes1.delete(:date)
-    attributes2.delete(:mission_type)
-    attributes3.delete(:price)
-    mission1 = Mission.new(attributes1)
-    mission2 = Mission.new(attributes2)
-    mission3 = Mission.new(attributes3)
+  it 'has a price' do
+    mission = Mission.new(valid_attributes)
 
-    expect(mission1).not_to be_valid
-    expect(mission2).not_to be_valid
-    expect(mission3).not_to be_valid
+    expect(mission.price).to eq(5)
+  end
+
+  it 'date cannot be blank' do
+    attributes = valid_attributes
+    attributes.delete(:date)
+    mission = Mission.new(attributes)
+
+    expect(mission).not_to be_valid
+  end
+
+  it 'mission_type cannot be blank' do
+    attributes = valid_attributes
+    attributes.delete(:mission_type)
+    mission = Mission.new(attributes)
+
+    expect(mission).not_to be_valid
   end
 
   it 'has a valid type' do
