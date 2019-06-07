@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RentalPeriodValidator < ActiveModel::Validator
   def validate(record)
     start_date = record.start_date

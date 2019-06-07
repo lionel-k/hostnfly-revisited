@@ -9,8 +9,8 @@ class CreateLastCheckoutMissionService
   end
 
   def call
-    mission = Mission.create!(listing: @listing,
-                              mission_type: @mission_type,
-                              date: @end_date)
+    Mission.create!(listing: @listing,
+                    mission_type: @mission_type,
+                    date: @end_date)
   end
 end
