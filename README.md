@@ -46,3 +46,17 @@ The script to fill the database from the `backend_test.rb` is in `db/seeds.rb`
 #### Missions
 
 - `GET /missions`
+
+### Code Quality
+
+Code Quality checked by:
+
+- The gem `simplecov` - 99.79% coverage.
+
+![alt text](https://raw.githubusercontent.com/lionel-k/hostnfly-revisited/master/api/public/simple-cov.png)
+
+- The gem `rubycritic`
+
+![alt text](https://raw.githubusercontent.com/lionel-k/hostnfly-revisited/master/api/public/rubycritic.png)
+
+Work in progress for refactoring..

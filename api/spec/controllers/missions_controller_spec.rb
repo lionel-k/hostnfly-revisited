@@ -3,12 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe MissionsController, type: :controller do
-  let(:listings) do
-    Listing.create!("id": 1, "num_rooms": 2)
-    Listing.create!(num_rooms: 2)
-    Listing.create!(num_rooms: 2)
-  end
-
   let(:listings_attributes) do
     [
       { "id": 1, "num_rooms": 2 },

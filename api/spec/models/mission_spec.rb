@@ -7,11 +7,6 @@ RSpec.describe Mission, type: :model do
     Listing.create!(num_rooms: 2)
   end
 
-  let(:booking) do
-    Booking.create!(listing: listing,
-                    start_date: '2016-10-10', end_date: '2016-10-15')
-  end
-
   let(:valid_attributes) do
     { listing: listing,
       date: '2016-10-11',
