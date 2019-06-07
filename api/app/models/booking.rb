@@ -4,7 +4,8 @@ class Booking < ApplicationRecord
   belongs_to :listing
 
   validates :start_date, :end_date, presence: true
-  validate :rental_period_valid?
+  include ActiveModel::Validations
+  validates_with RentalPeriodValidator
 
   after_create :generate_missions
 
@@ -21,14 +22,6 @@ class Booking < ApplicationRecord
   end
 
   private
-
-  def rental_period_valid?
-    return if [start_date.blank?, end_date.blank?].any?
-
-    if start_date > end_date
-      errors.add(:rental_period, 'start_date must earlier than end_date')
-    end
-  end
 
   def generate_missions
     CreateFirstCheckinMissionService.new(booking: self).call
