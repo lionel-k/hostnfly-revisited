@@ -11,7 +11,6 @@ class CreateFirstCheckinMissionService
   def call
     Mission.create!(listing: @listing,
                     mission_type: @mission_type,
-                    date: @start_date,
-                    price: @price)
+                    date: @start_date)
   end
 end

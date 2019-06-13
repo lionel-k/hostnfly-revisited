@@ -12,13 +12,12 @@ class CreateCheckoutCheckinMissionService
     existing_last_checkout = Mission
                              .where(listing: @listing,
                                     mission_type: 'last_checkout',
-                                    date: @end_date)
+                                    date: @end_date).exists?
 
-    if existing_last_checkout.blank?
+    unless existing_last_checkout
       Mission.create!(listing: @listing,
                       mission_type: @mission_type,
-                      date: @end_date,
-                      price: @price)
+                      date: @end_date)
     end
   end
 end

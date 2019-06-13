@@ -4,7 +4,6 @@ class Booking < ApplicationRecord
   belongs_to :listing
 
   validates :start_date, :end_date, presence: true
-  include ActiveModel::Validations
   validates_with RentalPeriodValidator
 
   after_create :generate_missions
