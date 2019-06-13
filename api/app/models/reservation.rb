@@ -3,7 +3,6 @@
 class Reservation < ApplicationRecord
   belongs_to :listing
 
-  include ActiveModel::Validations
   validates_with RentalPeriodValidator
 
   validates :start_date, :end_date, presence: true

@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
   private
 
   def booking
-    Booking.find_by(listing: listing, id: params[:id])
+    listing.bookings.find(params[:id])
   end
 
   def booking_params
